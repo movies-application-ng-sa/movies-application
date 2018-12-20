@@ -9,6 +9,21 @@
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
+    },
+    {
+      "title": "Cast Away",
+      "rating": "5",
+      "id": 3
+    },
+    {
+      "title": "Hachi: A Dog's Tale",
+      "rating": "5",
+      "id": 4
+    },
+    {
+      "title": "Hitch",
+      "rating": "5",
+      "id": 5
     }
   ]
 }
