@@ -8,8 +8,15 @@ sayHello('World');
  * require style imports
  */
 const {getMovies} = require('./api.js');
+const loadDiv = document.getElementById('loadScreen');
 
-getMovies().then((movies) => {
+getMovies()
+    .then((passingMovies) =>
+    {
+  loadDiv.style.display = "none";
+  return passingMovies;
+})
+    .then((movies) => {
   console.log('Here are all the movies:');
   movies.forEach(({title, rating, id}) => {
     console.log(`id#${id} - ${title} - rating: ${rating}`);

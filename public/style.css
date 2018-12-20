@@ -8,3 +8,16 @@ html, body {
     transform: translateY(-100%);
     text-align: center;
 }
+
+#loadText
+{
+    color: white;
+
+}
+
+#loadScreen
+{
+    height: 100%;
+    width: 100%;
+    background-color: gray;
+}
