@@ -9,6 +9,7 @@ import movieTools from './movieTools';
 const {getMovies} = require('./api.js');
 const loadDiv = document.getElementById('loadScreen');
 const movieContainer = document.getElementById('movieContainer');
+const movieButton = document.getElementById('movieFormButton')
 
 getMovies()
   .then((movies) => {
@@ -16,7 +17,6 @@ getMovies()
     movieContainer.style.display = 'block';
     movieContainer.innerHTML = movieTools.buildMovieHtml(movies);
     console.log('Here are all the movies:');
-
     movies.forEach(({title, rating, id}) => {
       console.log(`id#${id} - ${title} - rating: ${rating}`);
     });
@@ -25,3 +25,7 @@ getMovies()
   console.log(error);
 });
 
+movieButton.addEventListener('click', movieTools.addMovie);
+
+
+console.log(movieTools.usersInputMovie)
