@@ -16,22 +16,35 @@
         </div>
     </div>
     <div id="movieContainer" class="container">
-        <h1>Hello There!</h1>
-        <p>To get started, edit <code>src/index.js</code>.</p>
     </div>
     <div>
     <form id="movieForm">
         <label>
             Enter your favorite movie:
-            <input id="movieFormInput" type="text" placeholder="Movie Title">
+            <input id="movieTitle" type="text" placeholder="Movie Title">
         </label>
-        <button id="movieFormButton" type="button">
+        <label>
+            Rate your movie out of 5:
+            <select id="movieRating">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </label>
+        <button id="addMovieButton" type="button">
             Submit a movie
         </button>
         
     </form>
-    
-    
+        <form id="editMovieForm">
+            <label for="editMovieButton"></label>
+            <button name="editMovieButton" id="editMovieButton" type="button">
+            </button>
+        </form>
+
     </div>
     <script src="/main.js"></script>
 </body>

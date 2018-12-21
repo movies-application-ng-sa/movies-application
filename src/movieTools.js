@@ -1,32 +1,14 @@
-const usersInputMovie = document.getElementById('movieFormInput').value
 
 const buildMovieHtml = (movies) => {
-    let html = '';
-    let idMovieNumber = movies.length
+    let html = `<table><form action="">`;
+    let idMovieNumber = movies.length;
     movies.forEach((movie) => {
-        html += `<div><h4>${movie.title}</h4></div>`
+        html += `<tr><td>${movie.title}</td><td>Rating: ${movie.rating}</td><td><button class="btn" type="button">Edit Movie</button></td></tr>`
     });
-    console.log(idMovieNumber)
-    return html;
+    console.log(idMovieNumber);
+    return html += `</table></form>`;
 };
 
-const addMovie = (event) => {
-    event.preventDefault()
-    const blogPost = {title: usersInputMovie};
-    const url = '/api/movies';
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(blogPost),
-    };
-    fetch(url, options)
-        .then(/* post was created successfully */)
-        .catch(/* handle errors */);
-    document.getElementById('movieForm').reset()
-}
 
 
-
-export default {buildMovieHtml, usersInputMovie, addMovie};
+export default {buildMovieHtml};

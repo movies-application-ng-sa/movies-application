@@ -26,8 +26,19 @@
       "id": 5
     },
     {
-      "title": "How da grinch stole da christmas",
+      "title": "aladin",
+      "rating": "5",
       "id": 6
+    },
+    {
+      "title": "toy story",
+      "rating": "4",
+      "id": 7
+    },
+    {
+      "title": "space jam",
+      "rating": "5",
+      "id": 8
     }
   ]
 }
