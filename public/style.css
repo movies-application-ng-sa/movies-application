@@ -1,18 +1,21 @@
 html, body {
     height: 100%;
+    margin: 0;
 }
 
 .container {
     position: relative;
-    top: 50%;
-    transform: translateY(-100%);
+    /*top: 50%;*/
+    /*transform: translateY(-100%);*/
     text-align: center;
+    display: none;
 }
 
 #loadText
 {
     color: white;
-
+    display: inline-block;
+    margin-left: 1em;
 }
 
 #loadScreen
