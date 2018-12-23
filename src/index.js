@@ -10,11 +10,8 @@ import {getMovies} from './api.js';
 const loadDiv = document.getElementById('loadScreen');
 const movieContainer = document.getElementById('movieContainer');
 
-
 const usersInputMovie = document.getElementById('movieTitle');
 const usersInputRating = document.getElementById('movieRating');
-
-
 
 const makeButtonListeners = () => {
     const addMovieBtn = document.getElementById('addMovieButton');
@@ -23,7 +20,11 @@ const makeButtonListeners = () => {
     editMovieBtn.addEventListener('click', editMovies);
     let buttons = document.querySelectorAll('.btn');
     buttons.forEach(function(button) {
-        button.addEventListener('click',function() {});
+        button.addEventListener('click', function(event){
+         // these two lines work the same in getting the attribute's value
+            deleteMovies(event, this.getAttribute("itemid"));
+         // deleteMovies(event, this.getAttributeNode("itemid").value);
+        })
     });
 };
 const toggleMovies = () => {
@@ -53,7 +54,6 @@ const loadMovies = () => {
 
 
 const addMovie = (event) => {
-    console.log(event);
     event.preventDefault();
     if (usersInputMovie.value === ""){
         return;
@@ -80,14 +80,14 @@ const addMovie = (event) => {
 
 loadMovies();
 
-
 const editMovies = (event) => {
     event.preventDefault();
-    const movieArray = document.getElementsByClassName('movies')
+    const movieArray = document.getElementsByClassName('movies');
+    const ratingArray = document.getElementsByClassName('rating');
+
     console.log(movieArray[0]);
     for(let i = 0; i< movieArray.length; i++){
-
-        let post =  {title: movieArray[i].innerText}
+        let post =  {title: movieArray[i].innerText, rating: ratingArray[i].innerText};
         let url = `/api/movies/${i + 1}`;
         let options = {
             method: 'PUT',
@@ -99,13 +99,27 @@ const editMovies = (event) => {
         console.log(`This is post log ${JSON.stringify(post)}`);
         fetch(url, options)
             .then(() => {
+                toggleLoading();
+                loadMovies();
             })
             .catch((error) => console.log(error) /* handle errors */);
-
-
     }
 };
 
 
 
+const deleteMovies = (event, id) => {
+    event.preventDefault();
 
+    const url = `/api/movies/${parseFloat(id)}`;
+    const options = {
+        method: 'DELETE'
+    };
+    fetch(url, options)
+        .then(() => {
+            toggleLoading();
+            loadMovies();
+        })
+        .catch((error) => console.log(error) /* handle errors */);
+
+};

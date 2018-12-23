@@ -1,6 +1,5 @@
 html, body {
     height: 100%;
-    margin: 0;
 }
 
 .container {
@@ -26,4 +25,7 @@ html, body {
     height: 300px;
     width: 35%;
     background-color: gray;
+}
+td {
+    padding: 0.25em;
 }

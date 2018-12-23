@@ -1,9 +1,13 @@
 
 const buildMovieHtml = (movies) => {
-    let html = `<h3>Click a movie to edit</h3><table>`;
+    let html = `<h3>Click a movie to edit</h3><table><tr><td>Movie Title</td><td>Rating</td></tr>`;
     let idMovieNumber = movies.length;
-    movies.forEach((movie, id) => {
-        html += `<tr class="rowForMovies"><td class="movies" contenteditable="true">${movie.title}</td><td class='rating'contenteditable="true">${movie.rating}</td></tr>`
+    movies.forEach((movie) => {
+        html += `<tr>`+
+            `<td class="movies" contenteditable="true">${movie.title}</td>`+
+            `<td class='rating' contenteditable="true">${movie.rating}</td>`+
+            `<td ><button class="btn" type="button" itemid="${movie.id}">Delete Movie</button></td></tr>`
+
     });
 
     console.log(idMovieNumber);
