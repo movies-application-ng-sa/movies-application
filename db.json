@@ -1,44 +1,32 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
+      "title": "Casa Blanca",
       "id": 1
     },
     {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
+      "title": "Cast Away",
       "id": 2
     },
     {
-      "title": "Cast Away",
-      "rating": "5",
+      "title": "Hachi: A Dog's Tale",
       "id": 3
     },
     {
-      "title": "Hachi: A Dog's Tale",
-      "rating": "5",
+      "title": "Hitch",
       "id": 4
     },
     {
-      "title": "Hitch",
-      "rating": "5",
+      "title": "aladin",
       "id": 5
     },
     {
-      "title": "aladin",
-      "rating": "5",
+      "title": "toy story",
       "id": 6
     },
     {
-      "title": "toy story",
-      "rating": "4",
-      "id": 7
-    },
-    {
       "title": "space jam",
-      "rating": "5",
-      "id": 8
+      "id": 7
     }
   ]
 }

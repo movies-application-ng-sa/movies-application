@@ -3,12 +3,14 @@ const buildMovieHtml = (movies) => {
     let html = `<h3>Click a movie to edit</h3><table>`;
     let idMovieNumber = movies.length;
     movies.forEach((movie, id) => {
-        html += `<tr><td class="movies${id}" contenteditable="true">${movie.title}</td><td contenteditable="true">Rating: ${movie.rating}</td></tr>`
+        html += `<tr class="rowForMovies"><td class="movies" contenteditable="true">${movie.title}</td><td class='rating'contenteditable="true">${movie.rating}</td></tr>`
     });
 
     console.log(idMovieNumber);
-    return html += `<tr><td><button class="btn" type="button">Submit Changes</button></td></tr></table>`;
+    return html += `</table>`;
 };
+
+// Class always returns as an array, use indexes of to move through the class array
 
 // document.getElementsByClassName('movies0')[0].innerText
 

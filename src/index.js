@@ -26,20 +26,25 @@ const makeButtonListeners = () => {
         button.addEventListener('click',function() {});
     });
 };
+const toggleMovies = () => {
+    loadDiv.style.display = "none";
+    movieContainer.style.display = 'block';
+};
+const toggleLoading = () => {
+    loadDiv.style.display = "block";
+    movieContainer.style.display = 'none';
+};
 
 const loadMovies = () => {
     getMovies()
         .then((movies) => {
-            loadDiv.style.display = "none";
-            movieContainer.style.display = 'block';
+            toggleMovies();
             movieContainer.innerHTML = movieTools.buildMovieHtml(movies);
             console.log('Here are all the movies:');
             movies.forEach(({title, rating, id}) => {
                 console.log(`id#${id} - ${title} - rating: ${rating}`);
             });
             makeButtonListeners();
-
-
         }).catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);
@@ -50,6 +55,9 @@ const loadMovies = () => {
 const addMovie = (event) => {
     console.log(event);
     event.preventDefault();
+    if (usersInputMovie.value === ""){
+        return;
+    }
     const post = {title: usersInputMovie.value, rating: usersInputRating.value};
     const url = '/api/movies';
     const options = {
@@ -61,6 +69,7 @@ const addMovie = (event) => {
     };
     fetch(url, options)
         .then(() => {
+            toggleLoading();
             loadMovies();
         })
         .catch((error) => console.log(error) /* handle errors */);
@@ -74,21 +83,28 @@ loadMovies();
 
 const editMovies = (event) => {
     event.preventDefault();
-    const post = {title: usersInputMovie.value, rating: usersInputRating.value};
-    const url = '/api/movies';
-    const options = {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(post),
-    };
-    fetch(url, options)
-        .then(() => {
-        })
-        .catch((error) => console.log(error) /* handle errors */);
-};
+    const movieArray = document.getElementsByClassName('movies')
+    console.log(movieArray[0]);
+    for(let i = 0; i< movieArray.length; i++){
 
+        let post =  {title: movieArray[i].innerText}
+        let url = `/api/movies/${i + 1}`;
+        let options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(post),
+        };
+        console.log(`This is post log ${JSON.stringify(post)}`);
+        fetch(url, options)
+            .then(() => {
+            })
+            .catch((error) => console.log(error) /* handle errors */);
+
+
+    }
+};
 
 
 
