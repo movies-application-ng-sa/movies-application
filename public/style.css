@@ -1,31 +1,54 @@
 html, body {
     height: 100%;
+    margin: auto;
+}
+body{
+    background: url("movies_digital_art_collage_movie_posters_fan_art.jpg");
+}
+td {
+     padding: 0.25em;
+     font-size: 1.5em;
+ }
+section{
+    background-color: rgba(255,255,255,.5);
+    padding: 1em;
 }
 
-.container {
-    position: relative;
-    /*top: 50%;*/
-    /*transform: translateY(-100%);*/
-    display: none;
+button {
+    padding: 0.5em;
+    border-radius: 1em;
 }
 
-#movieRating{
-    width: 4em;
-}
 #loadText
 {
-
     color: white;
     display: inline-block;
     margin-left: 1em;
 }
-
 #loadScreen
 {
     height: 300px;
     width: 35%;
-    background-color: gray;
 }
-td {
-    padding: 0.25em;
+#movieRating{
+     width: 4em;
+}
+.container {
+     position: relative;
+     /*top: 50%;*/
+     /*transform: translateY(-100%);*/
+     display: none;
+ }
+.movies
+{
+    font-family: cursive;
+    background-color: aqua;
+    border-radius: 15px;
+    padding: 2px 10px;
+}
+
+.movieHeader
+{
+    font-family: "Iowan Old Style";
+    font-size: 2em;
 }

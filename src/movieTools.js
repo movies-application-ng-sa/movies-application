@@ -1,6 +1,6 @@
 
 const buildMovieHtml = (movies) => {
-    let html = `<h3>Click a movie to edit</h3><table><tr><td>Movie Title</td><td>Rating</td></tr>`;
+    let html = `<h3 class="movieHeader">Click a movie to edit</h3><table><jtr><td>Movie Title</td><td>Rating</td></jtr>`;
     let idMovieNumber = movies.length;
     movies.forEach((movie) => {
         html += `<tr>`+

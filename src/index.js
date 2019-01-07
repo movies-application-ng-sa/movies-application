@@ -51,7 +51,7 @@ const loadMovies = () => {
         console.log(error);
     });
 };
-
+loadMovies();
 
 const addMovie = (event) => {
     event.preventDefault();
@@ -78,7 +78,7 @@ const addMovie = (event) => {
     document.getElementById('movieForm').reset();
 };
 
-loadMovies();
+
 
 const editMovies = (event) => {
     event.preventDefault();
